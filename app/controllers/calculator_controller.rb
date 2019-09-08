@@ -10,7 +10,15 @@ class CalculatorController < ApplicationController
     arguments = parse_argument(input_calc)
     case arguments[:operator]
     when '+'
-      addition(input_a, input_b)
+      addition(arguments[:input_a], arguments[:input_b])
+    when '-'
+      subtraction(arguments[:input_a], arguments[:input_b])
+    when '*'
+      multiplication(arguments[:input_a], arguments[:input_b])
+    when '/'
+      division(arguments[:input_a].to_f, arguments[:input_b])
+    when '%'
+      modulo(arguments[:input_a], arguments[:input_b])
     end
   end
 
@@ -24,27 +32,30 @@ class CalculatorController < ApplicationController
       raise ArgumentError, 'Arguments to be [Float, operator, Float]'
     end
 
-    split_argument.each_with_index { |arg, index| arguments[INPUT_KEYS[index]] = arg }
+    split_argument.each_with_index do |arg, index|
+      arguments[INPUT_KEYS[index]] = arg if index == 1
+      arguments[INPUT_KEYS[index]] = arg.to_f if index.zero? || index == 2
+    end
     arguments
   end
 
   def addition(a, b)
-    (a.to_f + b.to_f).round(2)
+    (a + b).round(2)
   end
 
   def subtraction(a, b)
-    (a.to_f - b.to_f).round(2)
+    (a - b).round(2)
   end
 
   def multiplication(a, b)
-    a.zero? || b.zero? ? 0 : (a.to_f * b.to_f).round(2)
+    a.zero? || b.zero? ? 0 : (a * b).round(2)
   end
 
   def division(a, b)
-    a.zero? || b.zero? ? 0 : (a.to_f / b).round(2)
+    a.zero? || b.zero? ? 0 : (a / b).round(2)
   end
 
   def modulo(a, b)
-    a.zero? || b.zero? ? 0 : a.to_f % b.to_f
+    a.zero? || b.zero? ? 0 : a % b
   end
 end
