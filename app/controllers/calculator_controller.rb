@@ -6,6 +6,12 @@ class CalculatorController < ApplicationController
   OPERATORS = %w[+ - * / %].freeze
   REGEX = '(^[+-]?(?:0|[1-9]\d*)(?:\.(?:\d*[1-9]|0))?)$'
 
+def index
+  @input_calc = params[:input_calc]
+end
+
+  private
+
   def calculate(input_calc)
     arguments = parse_argument(input_calc)
     case arguments[:operator]
@@ -21,8 +27,6 @@ class CalculatorController < ApplicationController
       modulo(arguments[:input_a], arguments[:input_b])
     end
   end
-
-  private
 
   def parse_argument(argument)
     arguments = {}

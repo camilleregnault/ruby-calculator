@@ -81,11 +81,11 @@ RSpec.describe CalculatorController, type: :controller do
 
   describe '#calculate' do
     it 'returns a result for a given argument' do
-      expect(cal.calculate('1 + 50.5')).to eq(51.5)
-      expect(cal.calculate('10 - 50.5')).to eq(-40.5)
-      expect(cal.calculate('10 * 0.5')).to eq(5)
-      expect(cal.calculate('100 / 50.5')).to eq(1.98)
-      expect(cal.calculate('5 % 50')).to eq(5)
+      expect(cal.send(:calculate, '1 + 50.5')).to eq(51.5)
+      expect(cal.send(:calculate, '10 - 50.5')).to eq(-40.5)
+      expect(cal.send(:calculate, '10 * 0.5')).to eq(5)
+      expect(cal.send(:calculate, '100 / 50.5')).to eq(1.98)
+      expect(cal.send(:calculate, '5 % 50')).to eq(5)
     end
   end
 end
