@@ -4,17 +4,13 @@ class CalculatorController < ApplicationController
   # input a, input b and operation
   INPUT_KEYS = %i[input_a operator input_b].freeze
   OPERATORS = %w[+ - * / %].freeze
+  REGEX = '(^[+-]?(?:0|[1-9]\d*)(?:\.(?:\d*[1-9]|0))?)$'
 
-  def calculator(input_calc)
-    input_a = params[:input_a].to_i
-    input_b = params[:input_b].to_i
-    operation = params[:operation]
-    case operation
+  def calculate(input_calc)
+    arguments = parse_argument(input_calc)
+    case arguments[:operator]
     when '+'
       addition(input_a, input_b)
-    when '-'
-      subtraction(input_a, input_b)
-    
     end
   end
 
@@ -24,33 +20,31 @@ class CalculatorController < ApplicationController
     arguments = {}
     split_argument = argument.split(' ')
     if split_argument.length != 3 ||
-       !split_argument[0].scan(/\D/).empty? ||
-       !split_argument[2].scan(/\D/).empty? ||
        !OPERATORS.include?(split_argument[1])
-      raise ArgumentError, 'Arguments to be [int, operator, int]'
+      raise ArgumentError, 'Arguments to be [Float, operator, Float]'
     end
 
     split_argument.each_with_index { |arg, index| arguments[INPUT_KEYS[index]] = arg }
-    p arguments
+    arguments
   end
 
   def addition(a, b)
-    a + b
+    (a.to_f + b.to_f).round(2)
   end
 
   def subtraction(a, b)
-    a - b
+    (a.to_f - b.to_f).round(2)
   end
 
   def multiplication(a, b)
-    a * b
+    a.zero? || b.zero? ? 0 : (a.to_f * b.to_f).round(2)
   end
 
   def division(a, b)
-    a / b
+    a.zero? || b.zero? ? 0 : (a.to_f / b).round(2)
   end
 
   def modulo(a, b)
-    a % b
+    a.zero? || b.zero? ? 0 : a.to_f % b.to_f
   end
 end
