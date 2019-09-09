@@ -7,7 +7,12 @@ class CalculatorController < ApplicationController
   REGEX = '(^[+-]?(?:0|[1-9]\d*)(?:\.(?:\d*[1-9]|0))?)$'
 
 def index
+end
+
+def show
   @input_calc = params[:input_calc]
+  @result = calculate(@input_calc)
+  render
 end
 
   private
