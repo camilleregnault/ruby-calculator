@@ -8,12 +8,22 @@ class CalculatorController < ApplicationController
 
 
 def index
-  @result = '0'
+  @result = "0"
 end
 
 def new
-  p params
-  @result = params["input"]
+  if params['input'] == 'C'
+    @result = '0'
+  elsif params['input'] == '='
+    @result = calculate(params['result'])
+  else
+    @result =
+      if params['result'] == '0'
+        params['input']
+      else
+        params['result'] + params['input']
+      end
+  end
   render :index
 end
 
@@ -21,6 +31,7 @@ end
 
   def calculate(input_calc)
     arguments = parse_argument(input_calc)
+    return arguments if arguments == "Error"
     case arguments[:operator]
     when '+'
       addition(arguments[:input_a], arguments[:input_b])
@@ -40,7 +51,7 @@ end
     split_argument = argument.split(' ')
     if split_argument.length != 3 ||
       !OPERATORS.include?(split_argument[1])
-      raise ArgumentError, 'Arguments to be [Float, operator, Float]'
+      return "Error"
     end
 
     split_argument.each_with_index do |arg, index|
