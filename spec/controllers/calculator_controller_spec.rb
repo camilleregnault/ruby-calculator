@@ -7,7 +7,7 @@ RSpec.describe CalculatorController, type: :controller do
 
   describe '#parse_argument' do
     it 'raises an error if the argument cannot be split into 3 arguments' do
-      expect { cal.send(:parse_argument, '1+3') }.to raise_error(ArgumentError)
+      expect { cal.send(:parse_argument, '1+3-4') }.to raise_error(ArgumentError)
     end
 
     it 'raises an error if the middle argument is not an operator' do
