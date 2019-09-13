@@ -1,7 +1,9 @@
 # Ruby Calculator
 
-Ruby Calculator est un projet de **calculatrice**
+Ruby Calculator est un projet de **calculatrice**.
+
 A cette étape de développement la calculatrice gère l’addition, la soustraction, la multiplication et la division de deux nombres positifs et/ou négatifs.
+
 Un temps de 0.5secondes a été ajouté afin de simuler un temps de calcul.
 
 ## Sujet:
@@ -24,7 +26,7 @@ Pour information, seront jugés, entre autre : la qualité du code, la facilité
 ## Installation:
 - [Ruby 2.6 ou supérieur](https://www.ruby-lang.org/fr/documentation/installation/)
 - [Rails 6.0 ou supérieur](https://guides.rubyonrails.org/v5.0/getting_started.html)
-**Si plusieurs versions de Ruby sur le même environnement**
+###### Si plusieurs versions de Ruby sur le même environnement:
 - [Rbenv](https://github.com/rbenv/rbenv)
 - [Node 10.16 ou superieur](https://nodejs.org/en/download/package-manager/)
 
@@ -41,10 +43,11 @@ bundle install
 ```
 rails s
 ```
-Puis ouvrez **localhost:3000** dans un navigateur pour utiliser l’application.
+Puis ouvrez **http://localhost:3000/** dans un navigateur pour utiliser l’application.
 
 ## Démo:
 Projet hébergé sur [Heroku](https://www.heroku.com):
+
 https://ruby-calc.herokuapp.com/calculator/
 
 ## Test:
