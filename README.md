@@ -21,7 +21,7 @@ Pour information, seront jugés, entre autre : la qualité du code, la facilité
 - Bootstrap 4.2
 - Node 10.16.0
 
-## Installation:
+## Installation:
 - [Ruby 2.6 ou supérieur](https://www.ruby-lang.org/fr/documentation/installation/)
 - [Rails 6.0 ou supérieur](https://guides.rubyonrails.org/v5.0/getting_started.html)
 **Si plusieurs versions de Ruby sur le même environnement**
@@ -53,4 +53,4 @@ https://ruby-calc.herokuapp.com/calculator/
 rspec spec/controllers/calculator_controller_spec.rb
 ```
 
-Toutes les méthodes de la classe CalculatorController sont testées dans le fichier spec/controllers/calculator_controller_spec.rb afin d’avoir une bonne base de développement.
+Toutes les méthodes de la classe **CalculatorController** sont testées dans le fichier **spec/controllers/calculator_controller_spec.rb** afin d’avoir une bonne base de développement.
