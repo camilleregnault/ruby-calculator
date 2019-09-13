@@ -1,0 +1,91 @@
+// Place all the styles related to the Calculator controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*--------------------
+Calculator
+--------------------*/
+.calculator {
+  width: 300px;
+  background: linear-gradient(135deg, #fcaf3b, $orange);
+  margin: 30px auto;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 20px;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  -webkit-transform: translate(-50%, -62%);
+  transform: translate(-50%, -62%);
+}
+
+/*--------------------
+screen
+--------------------*/
+.screen {
+  background: $white;
+  padding: 15px 28px;
+  height: 69px;
+  text-align: right;
+  font-size: 29px;
+  color: #4c455a;
+  position: relative;
+  overflow: hidden;
+}
+
+/*--------------------
+Buttons
+--------------------*/
+.buttons .button {
+  float: right;
+  border: none;
+  background: transparent;
+  color: $white;
+  padding: 15px 10px;
+  outline: none;
+  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  focus: none !important;
+}
+.buttons .button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.buttons .button:active,
+.buttons .button.active {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+}
+.buttons::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.buttons .numbers {
+  float: left;
+  width: 75%;
+  padding: 10px;
+}
+.buttons .numbers .button {
+  width: 33.3333%;
+  padding: 18px 10px;
+}
+.buttons .operators {
+  float: right;
+  width: 25%;
+  padding: 16px 10px 10px;
+  background: rgba(0, 0, 0, 0.1);
+  min-height: 260px;
+}
+.buttons .operators .button {
+  width: 100%;
+  padding: 11px 10px;
+}
+.buttons .operators .button[data-val="x"] {
+  font-size: 13px;
+}
+.buttons .operators .button[data-val="-"] {
+  font-size: 18px;
+}
+.buttons .operators .button[data-val="="] {
+  font-size: 16px;
+}

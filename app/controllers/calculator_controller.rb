@@ -6,14 +6,32 @@ class CalculatorController < ApplicationController
   OPERATORS = %w[+ - * / %].freeze
   REGEX = '(^[+-]?(?:0|[1-9]\d*)(?:\.(?:\d*[1-9]|0))?)$'
 
+
 def index
-  @input_calc = params[:input_calc]
+  @result = "0"
+end
+
+def new
+  if params['input'] == 'C'
+    @result = '0'
+  elsif params['input'] == '='
+    @result = calculate(params['result'])
+  else
+    @result =
+      if params['result'] == '0'
+        params['input']
+      else
+        params['result'] + params['input']
+      end
+  end
+  render :index
 end
 
   private
 
   def calculate(input_calc)
     arguments = parse_argument(input_calc)
+    return arguments if arguments == "Error"
     case arguments[:operator]
     when '+'
       addition(arguments[:input_a], arguments[:input_b])
@@ -31,9 +49,28 @@ end
   def parse_argument(argument)
     arguments = {}
     split_argument = argument.split(' ')
-    if split_argument.length != 3 ||
-       !OPERATORS.include?(split_argument[1])
-      raise ArgumentError, 'Arguments to be [Float, operator, Float]'
+    if split_argument.length == 5 &&
+       split_argument[0] == '-' &&
+       split_argument[3] == '-'
+      split_argument = [split_argument[0] + split_argument[1],
+                        split_argument[2],
+                        split_argument[3] + split_argument[4]]
+    end
+
+    if split_argument.length == 4 && split_argument[0] == '-'
+      split_argument = [split_argument[0] + split_argument[1],
+                        split_argument[2],
+                        split_argument[3]]
+    end
+
+    if split_argument.length == 4 && split_argument[2] == '-'
+      split_argument = [split_argument[0],
+                        split_argument[1],
+                        split_argument[2] + split_argument[3]]
+    end
+
+    if split_argument.length != 3 || !OPERATORS.include?(split_argument[1])
+      return 'Error'
     end
 
     split_argument.each_with_index do |arg, index|

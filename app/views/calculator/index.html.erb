@@ -1,1 +1,29 @@
-<h1>Index </h1>
+<div class="container">
+  <h1>Calculator </h1>
+  <div class="calculator">
+    <div class="screen"><%= @result %></div>
+    <div class="buttons">
+      <div class="numbers">
+        <%= button_to "9", { action: "new" }, params: { input: "9", result: @result } , method: :get, class: "button" %>
+        <%= button_to "8", { action: "new" }, params: { input: "8", result: @result } , method: :get, class: "button" %>
+        <%= button_to "7", { action: "new" }, params: { input: "7", result: @result } , method: :get, class: "button" %>
+        <%= button_to "6", { action: "new" }, params: { input: "6", result: @result } , method: :get, class: "button" %>
+        <%= button_to "5", { action: "new" }, params: { input: "5", result: @result } , method: :get, class: "button" %>
+        <%= button_to "4", { action: "new" }, params: { input: "4", result: @result } , method: :get, class: "button" %>
+        <%= button_to "3", { action: "new" }, params: { input: "3", result: @result } , method: :get, class: "button" %>
+        <%= button_to "2", { action: "new" }, params: { input: "2", result: @result } , method: :get, class: "button" %>
+        <%= button_to "1", { action: "new" }, params: { input: "1", result: @result } , method: :get, class: "button" %>
+        <%= button_to "C", { action: "new" }, params: { input: "C", result: @result } , method: :get, class: "button" %>
+        <%= button_to ".", { action: "new" }, params: { input: ".", result: @result } , method: :get, class: "button" %>
+        <%= button_to "0", { action: "new" }, params: { input: "0", result: @result } , method: :get, class: "button" %>
+      </div>
+      <div class="operators">
+        <%= button_to "/", { action: "new" }, params: { input: " / ", result: @result } , method: :get, class: "button" %>
+        <%= button_to "x", { action: "new" }, params: { input: " * ", result: @result } , method: :get, class: "button" %>
+        <%= button_to "-", { action: "new" }, params: { input: " - ", result: @result } , method: :get, class: "button" %>
+        <%= button_to "+", { action: "new" }, params: { input: " + ", result: @result } , method: :get, class: "button" %>
+        <%= button_to "=", { action: "new" }, params: { input: "=", result: @result } , method: :get, class: "button" %>
+      </div>
+    </div>
+  </div>
+</div>
