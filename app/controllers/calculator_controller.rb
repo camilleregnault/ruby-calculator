@@ -17,7 +17,7 @@ class CalculatorController < ApplicationController
     if params['input'] == 'C'
       @result = '0'
     elsif params['input'] == '='
-      # simulate comptation time
+      # simulate computation time
       sleep(0.5)
       @result = calculate(params['result'])
     else
@@ -55,7 +55,7 @@ class CalculatorController < ApplicationController
   def parse_argument(argument)
     arguments = {}
     split_argument = argument.split(' ')
-    # handle negative numbers
+    # To handle negative numbers
     if split_argument.length == 5 &&
        split_argument[0] == '-' &&
        split_argument[3] == '-'
