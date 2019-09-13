@@ -26,8 +26,7 @@ Pour information, seront jugés, entre autre : la qualité du code, la facilité
 ## Installation:
 - [Ruby 2.6 ou supérieur](https://www.ruby-lang.org/fr/documentation/installation/)
 - [Rails 6.0 ou supérieur](https://guides.rubyonrails.org/v5.0/getting_started.html)
-###### Si plusieurs versions de Ruby sur le même environnement:
-- [Rbenv](https://github.com/rbenv/rbenv)
+- [Rbenv](https://github.com/rbenv/rbenv) (Si plusieurs versions de Ruby sur le même environnement)
 - [Node 10.16 ou superieur](https://nodejs.org/en/download/package-manager/)
 
 ###### Cloner le repository:
