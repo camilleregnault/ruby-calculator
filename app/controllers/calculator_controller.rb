@@ -49,9 +49,28 @@ end
   def parse_argument(argument)
     arguments = {}
     split_argument = argument.split(' ')
-    if split_argument.length != 3 ||
-      !OPERATORS.include?(split_argument[1])
-      return "Error"
+    if split_argument.length == 5 &&
+       split_argument[0] == '-' &&
+       split_argument[3] == '-'
+      split_argument = [split_argument[0] + split_argument[1],
+                        split_argument[2],
+                        split_argument[3] + split_argument[4]]
+    end
+
+    if split_argument.length == 4 && split_argument[0] == '-'
+      split_argument = [split_argument[0] + split_argument[1],
+                        split_argument[2],
+                        split_argument[3]]
+    end
+
+    if split_argument.length == 4 && split_argument[2] == '-'
+      split_argument = [split_argument[0],
+                        split_argument[1],
+                        split_argument[2] + split_argument[3]]
+    end
+
+    if split_argument.length != 3 || !OPERATORS.include?(split_argument[1])
+      return 'Error'
     end
 
     split_argument.each_with_index do |arg, index|
