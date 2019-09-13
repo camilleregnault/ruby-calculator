@@ -1,34 +1,39 @@
 # frozen_string_literal: true
 
+# Calculator class ton handle basic operation
 class CalculatorController < ApplicationController
   # input a, input b and operation
   INPUT_KEYS = %i[input_a operator input_b].freeze
   OPERATORS = %w[+ - * / %].freeze
   REGEX = '(^[+-]?(?:0|[1-9]\d*)(?:\.(?:\d*[1-9]|0))?)$'
 
-
-def index
-  @result = "0"
-end
-
-def new
-  if params['input'] == 'C'
-    @result = '0'
-  elsif params['input'] == '='
-    @result = calculate(params['result'])
-  else
-    @result =
-      if params['result'] == '0'
-        params['input']
-      else
-        params['result'] + params['input']
-      end
+  # To initiate the first display
+  def index
+    @result = "0"
   end
-  render :index
-end
+
+  # To handle every button click on calculator
+  def new
+    if params['input'] == 'C'
+      @result = '0'
+    elsif params['input'] == '='
+      # simulate comptation time
+      sleep(0.5)
+      @result = calculate(params['result'])
+    else
+      @result =
+        if params['result'] == '0'
+          params['input']
+        else
+          params['result'] + params['input']
+        end
+    end
+    render :index
+  end
 
   private
 
+  # To find right operation
   def calculate(input_calc)
     arguments = parse_argument(input_calc)
     return arguments if arguments == "Error"
@@ -46,9 +51,11 @@ end
     end
   end
 
+  # To parse argument inputs
   def parse_argument(argument)
     arguments = {}
     split_argument = argument.split(' ')
+    # handle negative numbers
     if split_argument.length == 5 &&
        split_argument[0] == '-' &&
        split_argument[3] == '-'
