@@ -6,13 +6,15 @@ class CalculatorController < ApplicationController
   OPERATORS = %w[+ - * / %].freeze
   REGEX = '(^[+-]?(?:0|[1-9]\d*)(?:\.(?:\d*[1-9]|0))?)$'
 
+
 def index
+  @result = '0'
 end
 
-def show
-  @input_calc = params[:input_calc]
-  @result = calculate(@input_calc)
-  render
+def new
+  p params
+  @result = params["input"]
+  render :index
 end
 
   private
@@ -37,7 +39,7 @@ end
     arguments = {}
     split_argument = argument.split(' ')
     if split_argument.length != 3 ||
-       !OPERATORS.include?(split_argument[1])
+      !OPERATORS.include?(split_argument[1])
       raise ArgumentError, 'Arguments to be [Float, operator, Float]'
     end
 

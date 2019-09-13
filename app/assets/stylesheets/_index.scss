@@ -36,7 +36,7 @@ screen
 /*--------------------
 Buttons
 --------------------*/
-.buttons button {
+.buttons .button {
   float: right;
   border: none;
   background: transparent;
@@ -47,11 +47,11 @@ Buttons
   border-radius: 14px;
   focus: none !important;
 }
-.buttons button:hover {
+.buttons .button:hover {
   background: rgba(255, 255, 255, 0.1);
 }
-.buttons button:active,
-.buttons button.active {
+.buttons .button:active,
+.buttons .button.active {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 14px;
 }
@@ -65,7 +65,7 @@ Buttons
   width: 75%;
   padding: 10px;
 }
-.buttons .numbers button {
+.buttons .numbers .button {
   width: 33.3333%;
   padding: 18px 10px;
 }
@@ -76,16 +76,16 @@ Buttons
   background: rgba(0, 0, 0, 0.1);
   min-height: 260px;
 }
-.buttons .operators button {
+.buttons .operators .button {
   width: 100%;
   padding: 11px 10px;
 }
-.buttons .operators button[data-val="x"] {
+.buttons .operators .button[data-val="x"] {
   font-size: 13px;
 }
-.buttons .operators button[data-val="-"] {
+.buttons .operators .button[data-val="-"] {
   font-size: 18px;
 }
-.buttons .operators button[data-val="="] {
+.buttons .operators .button[data-val="="] {
   font-size: 16px;
 }
