@@ -1,6 +1,6 @@
 # Ruby Calculator
 
-Ruby Calculator est un projet de **calculatrice**.
+**Ruby Calculator** est un projet de **calculatrice**.
 
 A cette étape de développement la calculatrice gère l’addition, la soustraction, la multiplication et la division de deux nombres positifs et/ou négatifs.
 
@@ -15,7 +15,7 @@ Développer une calculatrice permettant d'additionner deux nombres. Elle répond
 Pour information, seront jugés, entre autre : la qualité du code, la facilité d'installation et d’exécution, la documentation et l'ergonomie de l'ensemble. Pour le front et le back, le choix des langages et framework est libre.
 
 
-## Les technos utilisées:
+## Les technologies utilisées:
 - Ruby 2.6.2
 - Rails 6.0.0
 - Html5
