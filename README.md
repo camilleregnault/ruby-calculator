@@ -22,12 +22,14 @@ Pour information, seront jugés, entre autre : la qualité du code, la facilité
 - CSS3
 - Bootstrap 4.2
 - Node 10.16.0
+- Postgresql 11.5
 
 ## Installation:
 - [Ruby 2.6 ou supérieur](https://www.ruby-lang.org/fr/documentation/installation/)
 - [Rails 6.0 ou supérieur](https://guides.rubyonrails.org/v5.0/getting_started.html)
 - [Rbenv](https://github.com/rbenv/rbenv) (Si plusieurs versions de Ruby sur le même environnement)
 - [Node 10.16 ou superieur](https://nodejs.org/en/download/package-manager/)
+- [Postgesql](https://www.postgresql.org)
 
 ###### Cloner le repository:
 ```
